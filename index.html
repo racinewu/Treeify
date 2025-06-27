@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GitHub 樹狀目錄結構生成器</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>GitHub 樹狀目錄生成器</h1>
+      <p>輕鬆創建美觀的檔案目錄結構圖</p>
+    </div>
+
+    <div class="os-tip">
+      <strong>如何產生目錄清單：</strong><br>
+      Linux/macOS：<code>find . -type f</code><br>
+      Windows (PowerShell)：<code>Get-ChildItem -Recurse -File</code><br>
+      可在每行末尾加入註解（如 <code>#</code> 或 <code>//</code>），將一併顯示於輸出中。<br>
+      若目錄以斜線 <code>/</code> 結尾將視為資料夾，並保留斜線於輸出中。
+    </div>
+
+    <div class="main-content">
+      <div class="input-section">
+        <h2 class="section-title">
+          <span class="icon">📝</span>
+          輸入目錄結構（第一行為 root）
+        </h2>
+        <div class="controls">
+          <button onclick="generateTree()" class="generate-btn">生成樹狀圖</button>
+          <button onclick="clearInput()" class="clear-btn">🗑️ 清空</button>
+        </div>
+        <textarea id="input" placeholder="請輸入檔案路徑，每行一個，例如：
+src
+src/components/Header.js
+src/components/Footer.js
+README.md // 說明文件"></textarea>
+      </div>
+
+      <div class="output-section">
+        <h2 class="section-title">
+          <span class="icon">🌳</span>
+          樹狀結構輸出
+        </h2>
+        <div class="controls">
+          <button onclick="copyToClipboard()" class="copy-btn">複製結果</button>
+          <button onclick="clearOutput()" class="clear-btn">清空</button>
+        </div>
+        <textarea id="output" class="output-textarea" readonly placeholder="生成的樹狀結構會顯示在這裡..."></textarea>
+      </div>
+    </div>
+  </div>
+
+  <div id="successMessage" class="success-message">✅ 已複製到剪貼簿！</div>
+
+  <script src="script.js"></script>
+</body>
+</html>
