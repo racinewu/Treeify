@@ -1,4 +1,3 @@
-<script>
     function generateTree() {
       const input = document.getElementById('input').value.trim();
       if (!input) return alert('請先輸入檔案路徑！');
@@ -80,4 +79,3 @@
     window.onload = () => {
       document.getElementById('input').focus();
     };
-  </script>
